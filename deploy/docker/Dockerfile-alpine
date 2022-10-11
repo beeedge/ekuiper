@@ -1,0 +1,46 @@
+FROM registry-edge.lianyirong.com.cn/library/golang-ekuiper:1.17.9-alpine AS builder
+
+COPY . /go/kuiper
+
+WORKDIR /go/kuiper
+
+ENV GOPROXY=https://goproxy.cn,direct
+RUN make build
+
+FROM frolvlad/alpine-glibc:alpine-3.9_glibc-2.28
+
+# Set environment vars
+ENV MAINTAINER="emqx.io" \
+    KUIPER_HOME="/kuiper" \
+    KUIPER__BASIC__CONSOLELOG=true \
+    GOPROXY=https://mirrors.aliyun.com/goproxy/
+
+# These vars are not persisted in the final image layer
+ARG KUIPER_USER="kuiper"
+ARG KUIPER_USER_ID="1001"
+
+# (root) Add packages and "kuiper" user
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+RUN apk add sed libzmq
+
+WORKDIR ${KUIPER_HOME}
+
+# Set appropriate ownership to allow binary full access to KUIPER_HOME dir
+RUN adduser -DH -s /sbin/nologin -u ${KUIPER_USER_ID} ${KUIPER_USER} && \
+    chown -Rh ${KUIPER_USER}:${KUIPER_USER} ${KUIPER_HOME} && \
+    mkdir -p /usr/local/taos && \
+    chown -Rh ${KUIPER_USER}:${KUIPER_USER} /usr/local/taos
+
+# Run the kuiper process under the kuiper user
+USER ${KUIPER_USER}
+
+COPY --chown=${KUIPER_USER}:${KUIPER_USER} ./deploy/docker/docker-entrypoint.sh /usr/bin/docker-entrypoint.sh
+COPY --chown=${KUIPER_USER}:${KUIPER_USER} --from=builder /go/kuiper/_build/kuiper-* /kuiper/
+
+VOLUME ["${KUIPER_HOME}/etc", "${KUIPER_HOME}/data", "${KUIPER_HOME}/plugins", "${KUIPER_HOME}/log"]
+EXPOSE 9081 20498
+
+ENTRYPOINT ["/usr/bin/docker-entrypoint.sh"]
+
+CMD ["./bin/kuiperd"]
+
