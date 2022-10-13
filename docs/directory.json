@@ -1,0 +1,1046 @@
+{
+	"cn": [
+		{
+			"title": "概要",
+			"path": "./"
+		},
+		{
+			"title": "快速开始",
+			"children": [
+				{
+					"title": "本地运行",
+					"path": "getting_started"
+				},
+				{
+					"title": "Docker 容器运行",
+					"path": "quick_start_docker"
+				},
+				{
+					"title": "作为 EdgeX Foundry 规则引擎运行",
+					"path": "edgex/edgex_rule_engine_tutorial"
+				}
+			]
+		},
+		{
+			"title": "概念",
+			"children": [
+				{
+					"title": "eKuiper 基本概念",
+					"path": "concepts/ekuiper"
+				},
+				{
+					"title": "规则",
+					"path": "concepts/rules"
+				},
+				{
+					"title": "Sources 源",
+					"children": [
+						{
+							"title": "概览",
+							"path": "concepts/sources/overview"
+						},
+						{
+							"title": "流",
+							"path": "concepts/sources/stream"
+						},
+						{
+							"title": "表",
+							"path": "concepts/sources/table"
+						}
+					]
+				},
+				{
+					"title": "Sinks 动作",
+					"path": "concepts/sinks"
+				},
+				{
+					"title": "SQL 查询",
+					"path": "concepts/sql"
+				},
+				{
+					"title": "流式处理",
+					"children": [
+						{
+							"title": "概览",
+							"path": "concepts/streaming/overview"
+						},
+						{
+							"title": "时间属性",
+							"path": "concepts/streaming/time"
+						},
+						{
+							"title": "窗口",
+							"path": "concepts/streaming/windowing"
+						},
+						{
+							"title": "连接",
+							"path": "concepts/streaming/join"
+						}
+					]
+				},
+				{
+					"title": "扩展",
+					"path": "concepts/extensions"
+				}
+			]
+		},
+		{
+			"title": "教程",
+			"children": [
+				{
+					"title": "AI 教程",
+					"children": [
+						{
+							"title": "使用 eKuiper 原生插件实现图像标注",
+							"path": "tutorials/ai/tensorflow_lite_tutorial"
+						}
+					]
+				},
+				{
+					"title": "EdgeX Foundry 相关教程",
+					"children": [
+						{
+							"title": "EdgeX Foundry 规则引擎教程",
+							"path": "edgex/edgex_rule_engine_tutorial"
+						},
+						{
+							"title": "使用 EdgeX 流的 meta 函数",
+							"path": "edgex/edgex_meta"
+						},
+						{
+							"title": "EdgeX 规则引擎使用 command 服务",
+							"path": "edgex/edgex_rule_engine_command"
+						},
+						{
+							"title": "EdgeX 源配置教程",
+							"path": "edgex/edgex_source_tutorial"
+						}
+					]
+				},
+				{
+					"title": "使用 eKuiper 对 Neuron 采集的数据进行流式处理",
+					"path": "tutorials/neuron/neuron_integration_tutorial"
+				},
+				{
+					"title": "通过 OpenYurt 部署教程",
+					"path": "tutorials/deploy/openyurt_tutorial"
+				}
+			]
+		},
+		{
+			"title": "参考",
+			"children": [
+				{
+					"title": "规则",
+					"children": [
+						{
+							"title": "概览",
+							"path": "rules/overview"
+						},
+						{
+							"title": "规则流水线",
+							"path": "rules/rule_pipeline"
+						},
+						{
+							"title": "状态和容错",
+							"path": "rules/state_and_fault_tolerance"
+						}
+					]
+				},
+				{
+					"title": "Sources 源",
+					"children": [
+						{
+							"title": "概览",
+							"path": "rules/sources/overview"
+						},
+						{
+							"title": "内置源",
+							"children": [
+								{
+									"title": "MQTT 源",
+									"path": "rules/sources/builtin/mqtt"
+								},
+								{
+									"title": "Neuron 源",
+									"path": "rules/sources/builtin/neuron"
+								},
+								{
+									"title": "EdgeX 源",
+									"path": "rules/sources/builtin/edgex"
+								},
+								{
+									"title": "HTTP 拉取源",
+									"path": "rules/sources/builtin/http_pull"
+								},
+								{
+									"title": "内存源",
+									"path": "rules/sources/builtin/memory"
+								},
+								{
+									"title": "文件源",
+									"path": "rules/sources/builtin/file"
+								}
+							]
+						},
+						{
+							"title": "预定义插件源",
+							"children": [
+								{
+									"title": "Zero MQ 源",
+									"path": "rules/sources/plugin/zmq"
+								},
+								{
+									"title": "SQL 源",
+									"path": "rules/sources/plugin/sql"
+								},
+								{
+									"title": "随机源",
+									"path": "rules/sources/plugin/random"
+								}
+							]
+						}
+					]
+				},
+				{
+					"title": "Sinks 动作",
+					"children": [
+						{
+							"title": "概览",
+							"path": "rules/sinks/overview"
+						},
+						{
+							"title": "数据模板",
+							"path": "rules/data_template"
+						},
+						{
+							"title": "内置 sinks",
+							"children": [
+								{
+									"title": "MQTT 动作",
+									"path": "rules/sinks/builtin/mqtt"
+								},
+								{
+									"title": "Neuron 动作",
+									"path": "rules/sinks/builtin/neuron"
+								},
+								{
+									"title": "EdgeX 动作",
+									"path": "rules/sinks/builtin/edgex"
+								},
+								{
+									"title": "REST 动作",
+									"path": "rules/sinks/builtin/rest"
+								},
+								{
+									"title": "内存动作",
+									"path": "rules/sinks/builtin/memory"
+								},
+								{
+									"title": "日志动作",
+									"path": "rules/sinks/builtin/log"
+								},
+								{
+									"title": "Nop 动作",
+									"path": "rules/sinks/builtin/nop"
+								}
+							]
+						},
+						{
+							"title": "预定义 sink 插件",
+							"children": [
+								{
+									"title": "Zero MQ 动作",
+									"path": "rules/sinks/plugin/zmq"
+								},
+								{
+									"title": "文件动作",
+									"path": "rules/sinks/plugin/file"
+								},
+								{
+									"title": "SQL 动作",
+									"path": "rules/sinks/plugin/sql"
+								},
+								{
+									"title": "InfluxDB 动作",
+									"path": "rules/sinks/plugin/influx"
+								},
+								{
+									"title": "TDengine 动作",
+									"path": "rules/sinks/plugin/tdengine"
+								},
+								{
+									"title": "Redis 动作",
+									"path": "rules/sinks/plugin/redis"
+								},
+								{
+									"title": "图像动作",
+									"path": "rules/sinks/plugin/image"
+								}
+							]
+						}
+					]
+				},
+				{
+					"title": "SQL 参考",
+					"children": [
+						{
+							"title": "语法",
+							"children": [
+								{
+									"title": "概览",
+									"path": "sqls/overview"
+								},
+								{
+									"title": "词汇元素",
+									"path": "sqls/lexical_elements"
+								},
+								{
+									"title": "数据类型",
+									"path": "sqls/data_types"
+								},
+								{
+									"title": "JSON 表达式",
+									"path": "sqls/json_expr"
+								},
+								{
+									"title": "查询语言元素",
+									"path": "sqls/query_language_elements"
+								}
+							]
+						},
+						{
+							"title": "语句",
+							"children": [
+								{
+									"title": "流语句",
+									"path": "sqls/streams"
+								},
+								{
+									"title": "表语句",
+									"path": "sqls/tables"
+								}
+							]
+						},
+						{
+							"title": "窗口",
+							"path": "sqls/windows"
+						},
+						{
+							"title": "内置函数",
+							"path": "sqls/built-in_functions"
+						},
+						{
+							"title": "预定义函数插件",
+							"path": "sqls/custom_functions"
+						}
+					]
+				}
+			]
+		},
+		{
+			"title": "扩展开发",
+			"children": [
+				{
+					"title": "概览",
+					"path": "extension/overview"
+				},
+				{
+					"title": "原生插件开发",
+					"children": [
+						{
+							"title": "总览",
+							"path": "extension/native/overview"
+						},
+						{
+							"title": "原生插件总览",
+							"path": "extension/native/develop/overview"
+						},
+						{
+							"title": "插件开发教程",
+							"path": "extension/native/develop/plugins_tutorial"
+						},
+						{
+							"title": "函数插件开发",
+							"path": "extension/native/develop/function"
+						},
+						{
+							"title": "动作插件开发",
+							"path": "extension/native/develop/sink"
+						},
+						{
+							"title": "源插件开发",
+							"path": "extension/native/develop/source"
+						}
+					]
+				},
+				{
+					"title": "Portable 插件开发",
+					"children": [
+						{
+							"title": "Portable 插件简介",
+							"path": "extension/portable/overview"
+						},
+						{
+							"title": "Portable 插件 Go 语言 SDK",
+							"path": "extension/portable/go_sdk"
+						},
+						{
+							"title": "Portable 插件 Python 语言 SDK",
+							"path": "extension/portable/python_sdk"
+						}
+					]
+				},
+				{
+					"title": "外部函数",
+					"path": "extension/external/external_func"
+				}
+			]
+		},
+		{
+			"title": "使用指南",
+			"children": [
+				{
+					"title": "概览",
+					"path": "operation/overview"
+				},
+				{
+					"title": "安装",
+					"children": [
+						{
+							"title": "安装指南",
+							"path": "operation/install/overview"
+						},
+						{
+							"title": "centos 安装",
+							"path": "operation/install/cent-os"
+						}
+					]
+				},
+				{
+					"title": "配置",
+					"children": [
+						{
+							"title": "配置文件",
+							"path": "operation/config/configuration_file"
+						},
+						{
+							"title": "认证配置",
+							"path": "operation/config/authentication"
+						}
+					]
+				},
+				{
+					"title": "Rest API 接口",
+					"children": [
+						{
+							"title": "接口介绍",
+							"path": "operation/restapi/overview"
+						},
+						{
+							"title": "流管理",
+							"path": "operation/restapi/streams"
+						},
+						{
+							"title": "表管理",
+							"path": "operation/restapi/tables"
+						},
+						{
+							"title": "规则管理",
+							"path": "operation/restapi/rules"
+						},
+						{
+							"title": "插件管理",
+							"path": "operation/restapi/plugins"
+						},
+						{
+							"title": "外部函数管理",
+							"path": "operation/restapi/services"
+						}
+					]
+				},
+				{
+					"title": "命令行工具",
+					"children": [
+						{
+							"title": "总览",
+							"path": "operation/cli/overview"
+						},
+						{
+							"title": "流管理",
+							"path": "operation/cli/streams"
+						},
+						{
+							"title": "表管理",
+							"path": "operation/cli/tables"
+						},
+						{
+							"title": "规则管理",
+							"path": "operation/cli/rules"
+						},
+						{
+							"title": "插件管理",
+							"path": "operation/cli/plugins"
+						}
+					]
+				},
+				{
+					"title": "管理控制台",
+					"children": [
+						{
+							"title": "控制台使用",
+							"path": "operation/manager-ui/overview"
+						},
+						{
+							"title": "插件管理",
+							"path": "operation/manager-ui/plugins_in_manager"
+						}
+					]
+				},
+				{
+					"title": "编译",
+					"children": [
+						{
+							"title": "编译指南",
+							"path": "operation/compile/compile"
+						},
+						{
+							"title": "交叉编译",
+							"path": "operation/compile/cross-compile"
+						},
+						{
+							"title": "按需编译",
+							"path": "features"
+						}
+					]
+				}
+			]
+		},
+		{
+			"title": "贡献",
+			"path": "CONTRIBUTING"
+		}
+	],
+	"en": [
+		{
+			"title": "Home",
+			"path": "./"
+		},
+		{
+			"title": "Getting Started",
+			"children": [
+				{
+					"title": "Run eKuiper locally",
+					"path": "getting_started"
+				},
+				{
+					"title": "Run eKuiper in Docker",
+					"path": "quick_start_docker"
+				},
+				{
+					"title": "Run eKuiper with EdgeX Foundry",
+					"path": "edgex/edgex_rule_engine_tutorial"
+				}
+			]
+		},
+		{
+			"title": "Concepts",
+			"children": [
+				{
+					"title": "Why eKuiper",
+					"path": "concepts/ekuiper"
+				},
+				{
+					"title": "Rules",
+					"path": "concepts/rules"
+				},
+				{
+					"title": "Sources",
+					"children": [
+						{
+							"title": "Overview",
+							"path": "concepts/sources/overview"
+						},
+						{
+							"title": "Stream",
+							"path": "concepts/sources/stream"
+						},
+						{
+							"title": "Table",
+							"path": "concepts/sources/table"
+						}
+					]
+				},
+				{
+					"title": "Sinks",
+					"path": "concepts/sinks"
+				},
+				{
+					"title": "SQL Queries",
+					"path": "concepts/sql"
+				},
+				{
+					"title": "Stream Processing",
+					"children": [
+						{
+							"title": "Overview",
+							"path": "concepts/streaming/overview"
+						},
+						{
+							"title": "Time Attribute",
+							"path": "concepts/streaming/time"
+						},
+						{
+							"title": "Windowing",
+							"path": "concepts/streaming/windowing"
+						},
+						{
+							"title": "Join",
+							"path": "concepts/streaming/join"
+						}
+					]
+				},
+				{
+					"title": "Extensions",
+					"path": "concepts/extensions"
+				}
+			]
+		},
+		{
+			"title": "Tutorials",
+			"children": [
+				{
+					"title": "AI",
+					"children": [
+						{
+							"title": "Label image by tensorflow lite model with eKuiper native plugin",
+							"path": "tutorials/ai/tensorflow_lite_tutorial"
+						}
+					]
+				},
+				{
+					"title": "Working with EdgeX Foundry",
+					"children": [
+						{
+							"title": "EdgeX Foundry rule engine tutorial",
+							"path": "edgex/edgex_rule_engine_tutorial"
+						},
+						{
+							"title": "Meta function for EdgeX stream",
+							"path": "edgex/edgex_meta"
+						},
+						{
+							"title": "Command device with EdgeX eKuiper rules engine",
+							"path": "edgex/edgex_rule_engine_command"
+						},
+						{
+							"title": "EdgeX source configuration command",
+							"path": "edgex/edgex_source_tutorial"
+						}
+					]
+				},
+				{
+					"title": "Stream processing of data collected by Neuron using eKuiper",
+					"path": "tutorials/neuron/neuron_integration_tutorial"
+				},
+				{
+					"title": "Deploy by OpenYurt",
+					"path": "tutorials/deploy/openyurt_tutorial"
+				}
+			]
+		},
+		{
+			"title": "References",
+			"children": [
+				{
+					"title": "Rules",
+					"children": [
+						{
+							"title": "Introduction",
+							"path": "rules/overview"
+						},
+						{
+							"title": "Rule Pipeline",
+							"path": "rules/rule_pipeline"
+						},
+						{
+							"title": "State and Fault Tolerance",
+							"path": "rules/state_and_fault_tolerance"
+						}
+					]
+				},
+				{
+					"title": "Sources",
+					"children": [
+						{
+							"title": "Overview",
+							"path": "rules/sources/overview"
+						},
+						{
+							"title": "Built-in sources",
+							"children": [
+								{
+									"title": "MQTT source",
+									"path": "rules/sources/builtin/mqtt"
+								},
+								{
+									"title": "Neuron source",
+									"path": "rules/sources/builtin/neuron"
+								},
+								{
+									"title": "EdgeX Source",
+									"path": "rules/sources/builtin/edgex"
+								},
+								{
+									"title": "HTTP pull source",
+									"path": "rules/sources/builtin/http_pull"
+								},
+								{
+									"title": "Memory source",
+									"path": "rules/sources/builtin/memory"
+								},
+								{
+									"title": "File source",
+									"path": "rules/sources/builtin/file"
+								}
+							]
+						},
+						{
+							"title": "Predefined source plugins",
+							"children": [
+								{
+									"title": "Zero MQ source",
+									"path": "rules/sources/plugin/zmq"
+								},
+								{
+									"title": "SQL source",
+									"path": "rules/sources/plugin/sql"
+								},
+								{
+									"title": "Random source",
+									"path": "rules/sources/plugin/random"
+								}
+							]
+						}
+					]
+				},
+				{
+					"title": "Sinks",
+					"children": [
+						{
+							"title": "Overview",
+							"path": "rules/sinks/overview"
+						},
+						{
+							"title": "Data Template",
+							"path": "rules/data_template"
+						},
+						{
+							"title": "Built-in sinks",
+							"children": [
+								{
+									"title": "MQTT action",
+									"path": "rules/sinks/builtin/mqtt"
+								},
+								{
+									"title": "Neuron action",
+									"path": "rules/sinks/builtin/neuron"
+								},
+								{
+									"title": "EdgeX Message Bus action",
+									"path": "rules/sinks/builtin/edgex"
+								},
+								{
+									"title": "REST action",
+									"path": "rules/sinks/builtin/rest"
+								},
+								{
+									"title": "Memory action",
+									"path": "rules/sinks/builtin/memory"
+								},
+								{
+									"title": "Log action",
+									"path": "rules/sinks/builtin/log"
+								},
+								{
+									"title": "Nop action",
+									"path": "rules/sinks/builtin/nop"
+								}
+							]
+						},
+						{
+							"title": "Predefined sink plugins",
+							"children": [
+								{
+									"title": "Zero MQ sink",
+									"path": "rules/sinks/plugin/zmq"
+								},
+								{
+									"title": "File sink",
+									"path": "rules/sinks/plugin/file"
+								},
+								{
+									"title": "SQL sink",
+									"path": "rules/sinks/plugin/sql"
+								},
+								{
+									"title": "InfluxDB sink",
+									"path": "rules/sinks/plugin/influx"
+								},
+								{
+									"title": "TDengine sink",
+									"path": "rules/sinks/plugin/tdengine"
+								},
+								{
+									"title": "Redis sink",
+									"path": "rules/sinks/plugin/redis"
+								},
+								{
+									"title": "Image sink",
+									"path": "rules/sinks/plugin/image"
+								}
+							]
+						}
+					]
+				},
+				{
+					"title": "SQL",
+					"children": [
+						{
+							"title": "Syntax",
+							"children": [
+								{
+									"title": "Introduction",
+									"path": "sqls/overview"
+								},
+								{
+									"title": "Lexical elements",
+									"path": "sqls/lexical_elements"
+								},
+								{
+									"title": "Data types",
+									"path": "sqls/data_types"
+								},
+								{
+									"title": "JSON Expressions",
+									"path": "sqls/json_expr"
+								},
+								{
+									"title": "Query language element",
+									"path": "sqls/query_language_elements"
+								}
+							]
+						},
+						{
+							"title": "Statements",
+							"children": [
+								{
+									"title": "Streams",
+									"path": "sqls/streams"
+								},
+								{
+									"title": "Tables",
+									"path": "sqls/tables"
+								}
+							]
+						},
+						{
+							"title": "Windows",
+							"path": "sqls/windows"
+						},
+						{
+							"title": "Built-in Functions",
+							"path": "sqls/built-in_functions"
+						},
+						{
+							"title": "Predefined function plugins",
+							"path": "sqls/custom_functions"
+						}
+					]
+				}
+			]
+		},
+		{
+			"title": "Extension Programming",
+			"children": [
+				{
+					"title": "Introduction",
+					"path": "extension/overview"
+				},
+				{
+					"title": "Native plugin develop",
+					"children": [
+						{
+							"title": "Native plugin develop overview",
+							"path": "extension/native/overview"
+						},
+						{
+							"title": "Native plugins overview",
+							"path": "extension/native/develop/overview"
+						},
+						{
+							"title": "Plugin develop tutorial",
+							"path": "extension/native/develop/plugins_tutorial"
+						},
+						{
+							"title": "Function plugin",
+							"path": "extension/native/develop/function"
+						},
+						{
+							"title": "Sink plugin",
+							"path": "extension/native/develop/sink"
+						},
+						{
+							"title": "Source plugin",
+							"path": "extension/native/develop/source"
+						}
+					]
+				},
+				{
+					"title": "Portable plugin develop",
+					"children": [
+						{
+							"title": "Portable Plugin",
+							"path": "extension/portable/overview"
+						},
+						{
+							"title": "GO SDK for Portable Plugin",
+							"path": "extension/portable/go_sdk"
+						},
+						{
+							"title": "Python SDK for Portable Plugin",
+							"path": "extension/portable/python_sdk"
+						}
+					]
+				},
+				{
+					"title": "External function",
+					"path": "extension/external/external_func"
+				}
+			]
+		},
+		{
+			"title": "Operations",
+			"children": [
+				{
+					"title": "Introduction",
+					"path": "operation/overview"
+				},
+				{
+					"title": "Install",
+					"children": [
+						{
+							"title": "overview",
+							"path": "operation/install/overview"
+						},
+						{
+							"title": "centos",
+							"path": "operation/install/cent-os"
+						}
+					]
+				},
+				{
+					"title": "Configuration",
+					"children": [
+						{
+							"title": "Configuration File",
+							"path": "operation/config/configuration_file"
+						},
+						{
+							"title": "Authentication",
+							"path": "operation/config/authentication"
+						}
+					]
+				},
+				{
+					"title": "Rest API",
+					"children": [
+						{
+							"title": "Introduction",
+							"path": "operation/restapi/overview"
+						},
+						{
+							"title": "Streams",
+							"path": "operation/restapi/streams"
+						},
+						{
+							"title": "Tables",
+							"path": "operation/restapi/tables"
+						},
+						{
+							"title": "Rules",
+							"path": "operation/restapi/rules"
+						},
+						{
+							"title": "Plugins",
+							"path": "operation/restapi/plugins"
+						},
+						{
+							"title": "External Services",
+							"path": "operation/restapi/services"
+						}
+					]
+				},
+				{
+					"title": "Command line tool",
+					"children": [
+						{
+							"title": "Introduction",
+							"path": "operation/cli/overview"
+						},
+						{
+							"title": "Streams",
+							"path": "operation/cli/streams"
+						},
+						{
+							"title": "Rules",
+							"path": "operation/cli/rules"
+						},
+						{
+							"title": "Tables",
+							"path": "operation/cli/tables"
+						},
+						{
+							"title": "Plugins",
+							"path": "operation/cli/plugins"
+						}
+					]
+				},
+				{
+					"title": "Management console",
+					"children": [
+						{
+							"title": "Introduction",
+							"path": "operation/manager-ui/overview"
+						},
+						{
+							"title": "How to display custom plugins in the installation list of the management console",
+							"path": "operation/manager-ui/plugins_in_manager"
+						}
+					]
+				},
+				{
+					"title": "Compile",
+					"children": [
+						{
+							"title": "Compile",
+							"path": "operation/compile/compile"
+						},
+						{
+							"title": "Cross Compile",
+							"path": "operation/compile/cross-compile"
+						},
+						{
+							"title": "Compile selected features only",
+							"path": "features"
+						}
+					]
+				}
+			]
+		},
+		{
+			"title": "Contribute",
+			"path": "CONTRIBUTING"
+		}
+	]
+}
