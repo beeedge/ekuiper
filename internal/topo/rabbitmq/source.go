@@ -3,6 +3,7 @@ package rabbitmq
 import (
 	"encoding/json"
 	"fmt"
+	"strconv"
 	"strings"
 	"sync"
 
@@ -200,24 +201,40 @@ func (s *source) Connect(ctx api.StreamContext, consumer chan<- api.SourceTuple)
 			case string(RoutingKeyDeviceProperty):
 				issue_reply := msgSplits[1]
 				if issue_reply == "issue_reply" {
-					meta[deviceId] = body.Code
+					meta["deviceId"] = deviceId
+					meta["issueResponse"] = body.Code
 				} else {
 					for _, p := range body.Params {
-						meta[p.Id] = p.Value
+						valueInt, err := strconv.Atoi(p.Value)
+						if err != nil {
+							logger.Infof("string convert to int err:, %s\n", err)
+							continue
+						}
+						meta["featureId"] = p.Id
+						meta["currentValue"] = valueInt
 					}
+					meta["deviceId"] = deviceId
 				}
 				consumer <- api.NewDefaultSourceTuple(result, meta)
 			case string(RoutingKeyDeviceAlarm):
 				for _, p := range body.Params {
-					meta[p.Id] = p.Value
+					valueInt, err := strconv.Atoi(p.Value)
+					if err != nil {
+						logger.Infof(", %s\n", err)
+						continue
+					}
+					meta["featureId"] = p.Id
+					meta["currentValue"] = valueInt
 				}
+				meta["deviceId"] = deviceId
 				consumer <- api.NewDefaultSourceTuple(result, meta)
 			case string(RoutingKeyDeviceStatus):
 				meta["deviceId"] = deviceId
 				meta["status"] = body.Code
 				consumer <- api.NewDefaultSourceTuple(result, meta)
 			case string(RoutingKeyDeviceCommand):
-				meta["status"] = body.Code
+				meta["deviceId"] = deviceId
+				meta["issueResponse"] = body.Code
 				consumer <- api.NewDefaultSourceTuple(result, meta)
 			}
 		}
