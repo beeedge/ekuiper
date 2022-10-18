@@ -15,8 +15,10 @@
 package io
 
 import (
+	"github.com/lf-edge/ekuiper/internal/topo/kafka"
 	"github.com/lf-edge/ekuiper/internal/topo/memory"
 	"github.com/lf-edge/ekuiper/internal/topo/neuron"
+	"github.com/lf-edge/ekuiper/internal/topo/rabbitmq"
 	"github.com/lf-edge/ekuiper/internal/topo/sink"
 	"github.com/lf-edge/ekuiper/internal/topo/source"
 	"github.com/lf-edge/ekuiper/pkg/api"
@@ -33,15 +35,19 @@ var (
 		"file":     func() api.Source { return &source.FileSource{} },
 		"memory":   func() api.Source { return memory.GetSource() },
 		"neuron":   func() api.Source { return neuron.GetSource() },
+		"rabbitmq": func() api.Source { return rabbitmq.GetSource() },
 	}
 	sinks = map[string]NewSinkFunc{
-		"log":         sink.NewLogSink,
-		"logToMemory": sink.NewLogSinkToMemory,
-		"mqtt":        func() api.Sink { return &sink.MQTTSink{} },
-		"rest":        func() api.Sink { return &sink.RestSink{} },
-		"nop":         func() api.Sink { return &sink.NopSink{} },
-		"memory":      func() api.Sink { return memory.GetSink() },
-		"neuron":      func() api.Sink { return neuron.GetSink() },
+		"log":              sink.NewLogSink,
+		"logToMemory":      sink.NewLogSinkToMemory,
+		"mqtt":             func() api.Sink { return &sink.MQTTSink{} },
+		"rest":             func() api.Sink { return &sink.RestSink{} },
+		"nop":              func() api.Sink { return &sink.NopSink{} },
+		"memory":           func() api.Sink { return memory.GetSink() },
+		"neuron":           func() api.Sink { return neuron.GetSink() },
+		"rabbitmq":         func() api.Sink { return rabbitmq.GetSink() },
+		"kafka":            func() api.Sink { return kafka.GetSink() },
+		"rabbitmq_convert": func() api.Sink { return rabbitmq.GetConvertSink() },
 	}
 )
 

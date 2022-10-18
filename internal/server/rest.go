@@ -17,14 +17,6 @@ package server
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/gorilla/handlers"
-	"github.com/gorilla/mux"
-	"github.com/lf-edge/ekuiper/internal/conf"
-	"github.com/lf-edge/ekuiper/internal/server/middleware"
-	"github.com/lf-edge/ekuiper/pkg/api"
-	"github.com/lf-edge/ekuiper/pkg/ast"
-	"github.com/lf-edge/ekuiper/pkg/errorx"
-	"github.com/lf-edge/ekuiper/pkg/infra"
 	"io"
 	"io/ioutil"
 	"net/http"
@@ -34,6 +26,15 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/gorilla/handlers"
+	"github.com/gorilla/mux"
+	"github.com/lf-edge/ekuiper/internal/conf"
+	"github.com/lf-edge/ekuiper/internal/server/middleware"
+	"github.com/lf-edge/ekuiper/pkg/api"
+	"github.com/lf-edge/ekuiper/pkg/ast"
+	"github.com/lf-edge/ekuiper/pkg/errorx"
+	"github.com/lf-edge/ekuiper/pkg/infra"
 )
 
 const (
@@ -124,6 +125,8 @@ func createRestServer(ip string, port int, needToken bool) *http.Server {
 	r.HandleFunc("/rules/{name}/topo", getTopoRuleHandler).Methods(http.MethodGet)
 	r.HandleFunc("/config/uploads", fileUploadHandler).Methods(http.MethodPost, http.MethodGet)
 	r.HandleFunc("/config/uploads/{name}", fileDeleteHandler).Methods(http.MethodDelete)
+	r.HandleFunc("/sources/{id}", writeSourceHandler).Methods(http.MethodPost)
+	r.HandleFunc("/sources/{id}", deleteSourceHandler).Methods(http.MethodDelete)
 
 	// Register extended routes
 	for k, v := range components {
@@ -527,4 +530,42 @@ func getTopoRuleHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Header().Set(ContentType, ContentTypeJSON)
 	w.Write([]byte(content))
+}
+
+//write source file
+func writeSourceHandler(w http.ResponseWriter, r *http.Request) {
+	defer r.Body.Close()
+	vars := mux.Vars(r)
+	id := vars["id"]
+	body, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		handleError(w, err, "read body error", logger)
+		return
+	}
+	rabbitmqConfig := RabbitmqConfig{}
+	err = json.Unmarshal(body, &rabbitmqConfig)
+	if err != nil {
+		handleError(w, err, "unmarshal body error", logger)
+	}
+	err = WriteSource(id, rabbitmqConfig)
+	if err != nil {
+		handleError(w, err, "write source error", logger)
+		return
+	}
+	w.Header().Set(ContentType, ContentTypeJSON)
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("{code:200,msg:write source success}"))
+}
+
+func deleteSourceHandler(w http.ResponseWriter, r *http.Request) {
+	defer r.Body.Close()
+	vars := mux.Vars(r)
+	id := vars["id"]
+	err := DeleteSource(id)
+	if err != nil {
+		handleError(w, err, "delete source error", logger)
+	}
+	w.Header().Set(ContentType, ContentTypeJSON)
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("{code:200,msg:delete source success}"))
 }
